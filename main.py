@@ -5,7 +5,18 @@ app = typer.Typer()
 
 @app.command()
 def say_hello(name: str) -> None:
-    typer.echo(f"Hello {name}")
+    typer.secho(f"Hello {name}", fg=typer.colors.MAGENTA)
+
+
+@app.command()
+def show_status(good: bool = True) -> None:
+    message_start = "everything is "
+    if good:
+        ending = typer.style("good", fg=typer.colors.GREEN, bold=True)
+    else:
+        ending = typer.style("bad", fg=typer.colors.RED, bg=typer.colors.BLACK)
+    message = message_start + ending
+    typer.echo(message)
 
 
 @app.command()
