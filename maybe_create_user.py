@@ -17,7 +17,7 @@ def send_new_notification(username: str) -> None:
     typer.echo(f"Notification sent to the new user: {username}")
 
 
-def main(username: str) -> None:
+def main(username: str = typer.Argument(..., envvar="USER")) -> None:
     maybe_create_user(username)
     send_new_notification(username)
 
