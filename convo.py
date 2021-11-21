@@ -4,7 +4,7 @@ app = typer.Typer()
 
 
 @app.command()
-def say_hello(name: str = typer.Argument(...)) -> None:
+def say_hello(name: str = typer.Argument(..., help="The name of the person to greet")) -> None:
     typer.secho(f"Hello {name}", fg=typer.colors.MAGENTA)
 
 
