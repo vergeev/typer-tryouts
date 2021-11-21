@@ -1,7 +1,13 @@
+import random
+
 import typer
 
 
-def main(name: str = typer.Argument("World")) -> None:
+def generate_random_name() -> str:
+    return random.choice(["World", "Cruel World", "Mate", "Ma Man"])
+
+
+def main(name: str = typer.Argument(generate_random_name)) -> None:
     typer.echo(f"Hello {name}!")
 
 
