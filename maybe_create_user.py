@@ -7,7 +7,7 @@ existing_usernames = ["john doe", "jane doe"]
 def maybe_create_user(username: str) -> None:
     if username in existing_usernames:
         typer.echo("The user already exists")
-        raise typer.Exit()
+        raise typer.Abort()
     else:
         existing_usernames.append(username)
         typer.echo(f"User created: {username}")
